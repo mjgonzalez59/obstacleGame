@@ -1,0 +1,99 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+:root{
+  --botomPosition: 22.2vh;
+  --leftObstaclePosition: 90vw;
+  --darkWhite: #ebe0e0;
+}
+
+body{
+  background-color: blue;
+  overflow: hidden;
+}
+
+.gameContainer{
+  background-image: url(background.jpg);
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  width: 100vw;
+  height: 100vh;
+}
+
+.gameOver{
+  /* visibility: hidden; */
+  position: relative;
+  top: 6vw;
+  font-size: 7vw;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  color: var(--darkWhite);
+}
+
+.scoreContainer{
+  position: absolute;
+  color: var(--darkWhite);;
+  right: 4vw;
+  top: 3vh;
+  font-weight: bold;
+  border: 2px solid var(--darkWhite);
+  border-radius: 10px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.highScoreCount, .scoreCount{
+  margin: 1vw;
+}
+
+.square{
+  background-image: url(square.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: var(--botomPosition);
+  left: 2vw; 
+}
+
+.obstacle{
+  background-image: url(obstacle.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: var(--botomPosition);
+  left: var(--leftObstaclePosition);
+}
+
+.animateSquare{
+  animation: squareKeyFrame 0.6s linear;
+}
+
+@keyframes squareKeyFrame {
+  0%{
+    bottom: var(--botomPosition);
+  }
+  50%{
+    /* bottom: 45vh; */
+    bottom: 33vh;
+  }
+  100%{
+    bottom: var(--botomPosition);
+  }
+}
+
+.animateObstacle{
+  animation: obstacleKeyFrame 5s linear infinite;
+}
+
+@keyframes obstacleKeyFrame {
+  0%{
+    left: var(--leftObstaclePosition);
+  }
+  100%{
+    left: -10vw;
+  }
+}
